@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="report_picking" inherit_id="stock.report_picking">
+            <xpath expr="//div[hasclass('mt48')]" position="after">
+                <div class="row mt48 mb32">
+                    <t t-set="product_and_analytic_name" t-value="o.get_product_and_analytic_account()"/>
+                    <div class="col-auto" name="div_origin">
+                        <strong>Product:</strong>
+                        <p t-esc="product_and_analytic_name.get('product_name')"/>
+                    </div>
+                    <div class="col-auto" name="div_origin">
+                        <strong>Analytic Account:</strong>
+                        <p t-esc="product_and_analytic_name.get('analytic_account')"/>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>
