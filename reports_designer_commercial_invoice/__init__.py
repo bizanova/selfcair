@@ -13,9 +13,6 @@ def pre_init_check(cr):
     if not len(reports_designer) or reports_designer.state != "installed":
         raise ValidationError('This Module requires the installed module "Report Designer (XLSX, XLSM)". Please install the module!')
 
-    print('------------123-----------------',int(''.join([str(100+int(d)) for d in  reports_designer.installed_version.split('.')[2:]])))
     if int(''.join([str(100+int(d)) for d in  reports_designer.installed_version.split('.')[2:]])) < 100100:
-        print('---------------inside if----------------------')
-        5/0
         raise ValidationError('Module support "Report Designer (XLSX, XLSM)" module starting from Version 1.3.31, found Version {}. Please update the module "Report Designer (XLSX, XLSM)".'.format('.'.join(reports_designer.installed_version.split('.')[2:])))
     return True
